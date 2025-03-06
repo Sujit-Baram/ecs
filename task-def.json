@@ -1,0 +1,19 @@
+{
+    "family": "ecs-task",
+    "containerDefinitions": [
+      {
+        "name": "ecs-container",
+        "image": "<IMAGE_URI>",
+        "memory": 512,
+        "cpu": 256,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 80,
+            "hostPort": 80
+          }
+        ]
+      }
+    ]
+  }
+  
