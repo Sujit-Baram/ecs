@@ -13,13 +13,13 @@ phases:
     commands:
       - echo "Building Docker image..."
       - docker build -t my-app:$IMAGE_TAG .
-      - docker tag my-app:$IMAGE_TAG <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/my-app:$IMAGE_TAG
+      - docker tag my-app:$IMAGE_TAG 026090542851.dkr.ecr.us-east-1.amazonaws.com/my-app:$IMAGE_TAG
 
   post_build:
     commands:
       - echo "Pushing Docker image to ECR..."
-      - docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/my-app:$IMAGE_TAG
-      - echo '[{"name":"ecs-container","imageUri":"<AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/my-app:'$IMAGE_TAG'"}]' > imagedefinitions.json
+      - docker push 026090542851.dkr.ecr.us-east-1.amazonaws.com/my-app:$IMAGE_TAG
+      - echo '[{"name":"ecs-container","imageUri":"026090542851.dkr.ecr.us-east-1.amazonaws.com/my-app:'$IMAGE_TAG'"}]' > imagedefinitions.json
 
 artifacts:
   files:
