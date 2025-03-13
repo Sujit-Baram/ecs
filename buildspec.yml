@@ -16,13 +16,13 @@ phases:
       - echo "Listing built Docker images..."
       - docker images
       - echo "Tagging Docker image..."
-      - docker tag test:$IMAGE_TAG 026090542851.dkr.ecr.us-east-1.amazonaws.com/test:$IMAGE_TAG
+      - docker tag test:$IMAGE_TAG 026090542851.dkr.ecr.us-east-1.amazonaws.com/ecr-html:$IMAGE_TAG
   post_build:
     commands:
       - echo "Pushing Docker image to Amazon ECR..."
-      - docker push 026090542851.dkr.ecr.us-east-1.amazonaws.com/test:$IMAGE_TAG
+      - docker push 026090542851.dkr.ecr.us-east-1.amazonaws.com/ecr-html:$IMAGE_TAG
       - echo "Creating imagedefinitions.json file..."
-      - printf '[{"name":"test","imageUri":"026090542851.dkr.ecr.us-east-1.amazonaws.com/test:%s"}]' $IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"ecr-html","imageUri":"026090542851.dkr.ecr.us-east-1.amazonaws.com/test:%s"}]' $IMAGE_TAG > imagedefinitions.json
 artifacts:
   files:
     - imagedefinitions.json
