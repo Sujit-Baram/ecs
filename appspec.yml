@@ -3,7 +3,8 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "ecs-task"
+        TaskDefinition: "arn:aws:ecs:us-east-1:026090542851:task-definition/ecs-html:1"
         LoadBalancerInfo:
-          ContainerName: "ecs-container"
+          ContainerName: "ecshtml"
           ContainerPort: 80
+
